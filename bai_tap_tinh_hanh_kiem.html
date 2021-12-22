@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <label>Điểm tổng kết kỳ 1<input type="text" id="diemki1"></label>
+    <br>
+        <label>Điểm tổng kết kì 2<input type="text" id="diemki2"></label> <br>
+        <select name="Hanh kiem" id="hanhkiem" onChange="danhgiahocvien()">
+            <option value="">Hạnh kiểm</option>
+            <option value="yeu">yếu</option>
+            <option value="kha">khá</option>
+            <option value="tot">Tốt</option>
+        </select>
+        <p>Học lực: <span id="kq"></span></p>
+        <script>
+
+
+            function danhgiahocvien() {
+            dtkk1 = document.getElementById('diemki1').value;
+            dtkk2 = document.getElementById('diemki2').value;
+            dtkk1 = parseFloat(dtkk1)
+            dtkk2 = parseFloat(dtkk2)
+            sum = Math.round((dtkk1 + dtkk2) / 2);
+            hanhkiem = document.getElementById('hanhkiem').value;
+
+            console.log(hanhkiem)
+            if (hanhkiem === "yeu") {
+            document.getElementById('kq').innerHTML = "Học sinh Yếu"
+        } else if (hanhkiem === "kha") {
+            if (sum > 6) {
+            document.getElementById('kq').innerHTML = "Học sinh Tiên tiến"
+        } else {
+            document.getElementById('kq').innerHTML = 'Học sinh Trung bình'
+        }
+        } else if (hanhkiem === "tot") {
+            if (sum > 6 && sum <=8) {
+            document.getElementById('kq').innerHTML = "Học sinh Yếu"
+        } else if (sum > 8) {
+            document.getElementById('kq').innerHTML = 'Học sinh Giỏi'
+        } else {
+            document.getElementById('kq').innerHTML = 'Học sinh Trung Bình'
+        }
+
+        }
+            }
+
+
+</script>
+
+</body>
+</html>
